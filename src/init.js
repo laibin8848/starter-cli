@@ -6,7 +6,7 @@ import chalk from 'chalk';
 import symbol from 'log-symbols';
 const execFn = require('child_process').execSync;
 
-let init = async (templateName, projectName) => {
+let init = async (projectName) => {
     //项目不存在
     if (!fs.existsSync(projectName)) {
         //命令行交互
@@ -33,13 +33,13 @@ let init = async (templateName, projectName) => {
             //通过配置文件，获取模板信息
             let loading = ora('模板下载中 ...');
             loading.start();
-            downloadLocal(templateName, projectName).then(() => {
+            downloadLocal(projectName).then(() => {
                 loading.succeed();
-                const fileName = `${templateName}/package.json`;
+                const fileName = `${projectName}/package.json`;
                 if(fs.existsSync(fileName)){
                     const data = fs.readFileSync(fileName).toString();
                     let json = JSON.parse(data);
-                    json.name = templateName;
+                    json.name = projectName;
                     json.author = answer.author;
                     json.description = answer.description;
                     //修改项目文件夹中 package.json 文件
@@ -47,7 +47,7 @@ let init = async (templateName, projectName) => {
                     if(answer.install == 'yes') {
                         loading = ora('安装依赖 ...');
                         loading.start();
-                        execFn(`cd ./${templateName} && npm install`);
+                        execFn(`cd ./${projectName} && npm install`);
                         loading.succeed();
                     }
                     console.log(symbol.success, chalk.green('项目初始化完成!'));
