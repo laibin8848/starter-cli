@@ -1,7 +1,7 @@
 {
     "name": "yue-cli",
     "version": "1.0.1",
-    "description": "yueyun 前端脚手架 简陋版",
+    "description": "前端脚手架 JS VUE3 element plus...",
     "main": "index.js",
     "bin": {
         "yue-cli": "./bin/www"

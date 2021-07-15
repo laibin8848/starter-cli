@@ -21,11 +21,11 @@ let init = async (templateName, projectName) => {
             },
             {
                 type: 'list',
-                name: 'vueVer',
-                message: '请选择框架版本',
+                name: 'install',
+                message: '是否自动安装依赖',
                 choices: [
-                    { name: 'vue2', value: 'vue2' },
-                    { name: 'vue3', value: 'vue3' }
+                    { name: '是', value: 'yes' },
+                    { name: '否', value: 'no' }
                 ]
             }
         ]).then(async (answer) => {
@@ -44,10 +44,12 @@ let init = async (templateName, projectName) => {
                     json.description = answer.description;
                     //修改项目文件夹中 package.json 文件
                     fs.writeFileSync(fileName, JSON.stringify(json, null, '\t'), 'utf-8');
-                    loading = ora('安装依赖 ...');
-                    loading.start();
-                    execFn(`cd ./${templateName} && npm install`);
-                    loading.succeed();
+                    if(answer.install == 'yes') {
+                        loading = ora('安装依赖 ...');
+                        loading.start();
+                        execFn(`cd ./${templateName} && npm install`);
+                        loading.succeed();
+                    }
                     console.log(symbol.success, chalk.green('项目初始化完成!'));
                 }
             }, () => {
