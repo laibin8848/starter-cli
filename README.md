@@ -43,5 +43,7 @@ git clone https://github.com/laibin8848/starter-cli.git 下载CLI源码
 然后就可以在任意目录上创建你的项目了
 haha-cli init project_name
 
+用这种方式已经生成一个在用cli，详见https://www.npmjs.com/package/yuey-cli
+
 ```
 
