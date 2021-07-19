@@ -4,7 +4,7 @@ import apply from './index';
 import chalk from 'chalk';
 
 /**
- * yue-cli commands
+ * stater-cli commands
  *    - config
  *    - init 
  */
@@ -13,16 +13,16 @@ let actionMap = {
     init: {
         description: '生成新的项目模板',
         usages: [
-            'yue-cli init projectName'
+            'stater-cli init projectName'
         ]
     },
     config: {
         alias: 'cfg',
-        description: 'config .yue-clirc',
+        description: 'config .stater-clirc',
         usages: [
-            'yue-cli config set <k> <v>',
-            'yue-cli config get <k>',
-            'yue-cli config remove <k>'
+            'stater-cli config set <k> <v>',
+            'stater-cli config get <k>',
+            'stater-cli config remove <k>'
         ]
         
     },
