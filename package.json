@@ -1,16 +1,16 @@
 {
-    "name": "yue",
-    "command": "starter-cli",
-    "version": "1.0.6",
+    "name": "starter-cli",
+    "version": "1.0.8",
     "description": "前端脚手架 JS VUE3 element plus...",
     "main": "index.js",
+    "command": "starter-cli",
     "bin": {
         "starter-cli": "./bin/www"
     },
     "scripts": {
         "compile": "babel src -d dist",
         "watch": "npm run compile -- --watch",
-        "postinstall": "npm run compile && starter-cli config set"
+        "postinstall": "npm run compile"
     },
     "keywords": [],
     "author": "",
