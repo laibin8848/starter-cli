@@ -1,28 +1,28 @@
 import program from 'commander';
-import { VERSION } from './utils/constants';
+import { VERSION,COMMAND } from './utils/constants';
 import apply from './index';
 import chalk from 'chalk';
 
 /**
- * stater-cli commands
+ * cli commands
  *    - config
  *    - init 
  */
 
 let actionMap = {
     init: {
-        description: '生成新的项目模板',
+        description: 'start new project',
         usages: [
-            'stater-cli init projectName'
+            COMMAND + ' init projectName'
         ]
     },
     config: {
         alias: 'cfg',
-        description: 'config .stater-clirc',
+        description: 'config .'+COMMAND+'rc',
         usages: [
-            'stater-cli config set <k> <v>',
-            'stater-cli config get <k>',
-            'stater-cli config remove <k>'
+            COMMAND + ' config set <k> <v>',
+            COMMAND + ' config get <k>',
+            COMMAND + ' config remove <k>'
         ]
         
     },
@@ -32,11 +32,10 @@ let actionMap = {
 Object.keys(actionMap).forEach((action) => {
     program.command(action)
     .description(actionMap[action].description)
-    .alias(actionMap[action].alias) //别名
+    .alias(actionMap[action].alias)
     .action(() => {
         switch (action) {
             case 'config': 
-                //配置
                 apply(action, ...process.argv.slice(3));
                 break;
             case 'init':

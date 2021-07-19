@@ -1,15 +1,16 @@
 {
-    "name": "@tuyapi/cli",
+    "name": "yue",
+    "command": "starter-cli",
     "version": "1.0.6",
     "description": "前端脚手架 JS VUE3 element plus...",
     "main": "index.js",
     "bin": {
-        "stater-cli": "./bin/www"
+        "starter-cli": "./bin/www"
     },
     "scripts": {
         "compile": "babel src -d dist",
         "watch": "npm run compile -- --watch",
-        "postinstall": "npm run compile"
+        "postinstall": "npm run compile && starter-cli config set"
     },
     "keywords": [],
     "author": "",
