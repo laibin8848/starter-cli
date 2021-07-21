@@ -1,6 +1,6 @@
 {
-    "name": "yue",
-    "version": "1.1.3",
+    "name": "starter-cli",
+    "version": "1.1.6",
     "description": "前端脚手架 JS VUE3 element plus...",
     "main": "index.js",
     "command": "starter-cli",
@@ -12,7 +12,7 @@
         "watch": "npm run compile -- --watch",
         "postinstall": "npm run compile"
     },
-    "keywords": [],
+    "keywords": ["前端脚手架","vite","vue3","element plus"],
     "author": "",
     "license": "ISC",
     "dependencies": {
@@ -25,6 +25,7 @@
         "ini": "^1.3.5",
         "inquirer": "^6.5.0",
         "log-symbols": "^3.0.0",
+        "node-stream-zip": "^1.13.6",
         "ora": "^3.4.0"
     }
 }

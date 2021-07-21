@@ -18,9 +18,25 @@ let mod = async (action, moduleName) => {
                 console.log(symbol.success, chalk.red(`module ${moduleName} already exists!`));
                 return;
             }
-            const copyPath = path.resolve(__dirname+'/../src/templates/module');
-            // console.log(copyPath);
-            // fs.writeFileSync(modulePath, fs.readFileSync(copyPath));
+            const zipPath = path.resolve(__dirname+'/../src/templates/module/download.zip');
+            const StreamZip = require('node-stream-zip');
+            const zip = new StreamZip.async({ file: zipPath });
+            await fs.mkdirSync(modulePath);
+            await zip.extract(null, modulePath);
+            const moduleInfo = path.resolve(modulePath + '/main_tpl.js');
+            const moduleInfoTo = path.resolve(modulePath + '/main.js');
+            const data = fs.readFileSync(moduleInfo).toString();
+            fs.writeFileSync(moduleInfoTo, data.replace(/@moduleName@/g, moduleName), 'utf-8');
+
+            //
+            const floders = fetchFloders('./src/module');
+            const indexfile = './src/module/index.json';
+            if(fs.existsSync(indexfile)){
+                const data = fs.readFileSync(indexfile).toString();
+                let json = JSON.parse(data);
+                json.moduleList = floders;
+                fs.writeFileSync(indexfile, JSON.stringify(json, null, '\t'), 'utf-8');
+            }
             break;
         case 'remove':
             if(!fs.existsSync(modulePath)) {
