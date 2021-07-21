@@ -26,6 +26,15 @@ let actionMap = {
         ]
         
     },
+    mod: {
+        alias: 'm',
+        description: 'quickly add/remove one module for the system',
+        usages: [
+            COMMAND + ' mod add moduleName',
+            COMMAND + ' mod remove moduleName'
+        ]
+        
+    },
     //other commands
 }
 
@@ -39,6 +48,9 @@ Object.keys(actionMap).forEach((action) => {
                 apply(action, ...process.argv.slice(3));
                 break;
             case 'init':
+                apply(action, ...process.argv.slice(3));
+                break;
+            case 'mod':
                 apply(action, ...process.argv.slice(3));
                 break;
             default:

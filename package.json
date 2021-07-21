@@ -1,6 +1,6 @@
 {
     "name": "yue",
-    "version": "1.0.8",
+    "version": "1.1.3",
     "description": "前端脚手架 JS VUE3 element plus...",
     "main": "index.js",
     "command": "starter-cli",
