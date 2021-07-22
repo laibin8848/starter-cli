@@ -1,13 +1,8 @@
 import program from 'commander';
-import { VERSION,COMMAND } from './utils/constants';
+import { VERSION, COMMAND } from './utils/constants';
 import apply from './index';
 import chalk from 'chalk';
 
-/**
- * cli commands
- *    - config
- *    - init 
- */
 
 let actionMap = {
     init: {
@@ -18,7 +13,7 @@ let actionMap = {
     },
     config: {
         alias: 'cfg',
-        description: 'config .'+COMMAND+'rc',
+        description: 'config .'+ COMMAND +'rc',
         usages: [
             COMMAND + ' config set <k> <v>',
             COMMAND + ' config get <k>',
@@ -26,16 +21,14 @@ let actionMap = {
         ]
         
     },
-    mod: {
-        alias: 'm',
-        description: 'quickly add/remove one module for the system',
+    page: {
+        alias: 'pg',
+        description: 'quickly add/rm one dynamic module of the project',
         usages: [
-            COMMAND + ' mod add moduleName',
-            COMMAND + ' mod remove moduleName'
+            COMMAND + ' page add moduleName',
+            COMMAND + ' page rm moduleName'
         ]
-        
-    },
-    //other commands
+    }
 }
 
 Object.keys(actionMap).forEach((action) => {
@@ -50,7 +43,7 @@ Object.keys(actionMap).forEach((action) => {
             case 'init':
                 apply(action, ...process.argv.slice(3));
                 break;
-            case 'mod':
+            case 'page':
                 apply(action, ...process.argv.slice(3));
                 break;
             default:

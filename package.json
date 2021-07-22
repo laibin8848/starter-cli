@@ -12,7 +12,12 @@
         "watch": "npm run compile -- --watch",
         "postinstall": "npm run compile"
     },
-    "keywords": ["前端脚手架","vite","vue3","element plus"],
+    "keywords": [
+        "前端脚手架",
+        "vite",
+        "vue3",
+        "element plus"
+    ],
     "author": "",
     "license": "ISC",
     "dependencies": {

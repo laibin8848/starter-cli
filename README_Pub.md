@@ -14,7 +14,14 @@ npx yuey-cli init project_name
 ```
 
 npm install yuey-cli -g
-也可以执行命令npx yuey-cli init project_name直接创建项目
+yuey-cli init project_name
+cd project_name
+npm install
+以上操作即可为你快速生成一个后台管理系统
+cd project_name
+yuey-cli mod add blog 
+mod指令可以快速生成/移除一个模块
+详见yuey-cli -h
 
 
 ```

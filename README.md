@@ -14,6 +14,14 @@ npm install 后会自动编译
 然后就可以在任意目录上创建你的项目了
 starter-cli init project_name
 
+创建好项目后 cd project_name
+
+执行npm install，一个新的项目就可以运行了
+
+在项目根目录，还可以执行快捷操作，动态添加/移除一个新的模块
+starter-cli page add blog
+starter-cli page rm blog
+
 详见 starter-cli -h
 
 功能还在持续完善优化中。。。
