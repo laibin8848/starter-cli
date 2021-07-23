@@ -26,13 +26,14 @@ let page = async (action, moduleName) => {
                     name: 'tpl',
                     message: 'please select a template to create',
                     choices: [
-                        { name: 'default', value: 'default' },
-                        { name: 'chart', value: 'chart' },
-                        { name: 'list', value: 'list' }
+                        { name: 'default, empty template', value: 'default' },
+                        { name: 'chart, chart demo template', value: 'chart' },
+                        { name: 'table, table demo template', value: 'table' },
+                        { name: 'form, form demo template', value: 'form' }
                     ]
                 }
             ]).then(async (answer) => {
-                const zipPath = path.resolve(__dirname+'/../src/templates/module/default.zip');
+                const zipPath = path.resolve(__dirname+`/../src/templates/module/${answer.tpl}.zip`);
                 const StreamZip = require('node-stream-zip');
                 const zip = new StreamZip.async({ file: zipPath });
                 await fs.mkdirSync(modulePath);

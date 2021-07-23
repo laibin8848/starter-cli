@@ -16,6 +16,10 @@ let init = async (projectName) => {
             {
                 name: 'author',
                 message: 'Please enter author: '
+            },
+            {
+                name: 'mockhost',
+                message: 'Please enter api host and start server: '
             }
             // ,
             // {
@@ -39,6 +43,7 @@ let init = async (projectName) => {
                     json.name = projectName;
                     json.author = answer.author;
                     json.description = answer.description;
+                    json.mockhost = answer.mockhost;
                     fs.writeFileSync(fileName, JSON.stringify(json, null, '\t'), 'utf-8');
                     // if(answer.install == 'yes') {
                     //     loading = ora('installing dependencies ...');
