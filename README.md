@@ -16,7 +16,7 @@ starter-cli init project_name
 
 创建好项目后 cd project_name
 
-执行npm install，一个新的项目就可以运行了
+执行npm install，一个新的项目就可以运行了，网站DEMO： https://laibin8848.github.io/vue3admin
 
 在项目根目录，还可以执行快捷操作，动态添加/移除一个新的模块
 starter-cli page add blog
